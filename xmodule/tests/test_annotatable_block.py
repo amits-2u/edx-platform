@@ -1,10 +1,9 @@
 """Annotatable block tests"""
 
 
-import unittest
-
 import pytest
 from django.conf import settings
+from django.test import TestCase
 from django.test.utils import override_settings
 from lxml import etree
 from opaque_keys.edx.locator import BlockUsageLocator, CourseLocator
@@ -16,7 +15,7 @@ from xmodule import annotatable_block
 from . import get_test_system
 
 
-class _AnnotatableBlockTestCaseBase(unittest.TestCase):  # lint-amnesty, pylint: disable=missing-class-docstring
+class _AnnotatableBlockTestCaseBase(TestCase):  # lint-amnesty, pylint: disable=missing-class-docstring
     sample_xml = '''
         <annotatable display_name="Iliad">
             <instructions>Read the text.</instructions>
