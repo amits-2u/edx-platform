@@ -700,12 +700,29 @@ WIKI_ENABLED = True
 
 CERT_QUEUE = 'certificates'
 
-ELASTIC_SEARCH_CONFIG = [
-    {
-        'use_ssl': False,
-        'host': 'localhost',
-        'port': 9200
-    }
+# ELASTIC_SEARCH_CONFIG = [
+#    {
+#        'use_ssl': False,
+#        'host': 'localhost',
+#        'port': 9200
+#    }
+# ]
+
+########################### MEILISEARCH ################################
+MEILISEARCH_ENABLED = True
+MEILISEARCH_URL = "" # This is the internal URL that application will use to talk to the Meilisearch container
+MEILISEARCH_PUBLIC_URL = "http://localhost:7700" # This is the external URL used for direct access from a browser or external service
+MEILISEARCH_INDEX_PREFIX = "devstack" #Change later
+MEILISEARCH_API_KEY = "<MEILISEARCH_API_KEY>" # Add later
+MEILISEARCH_MASTER_KEY = "my_super_secret_key" # Add later
+SEARCH_ENGINE = "search.meilisearch.MeilisearchEngine"
+
+MEILISEARCH_SEARCH_CONFIG = [
+   {
+       'use_ssl': False,
+       'host': 'localhost',
+       'port': 7700
+   }
 ]
 
 ######################### CSRF #########################################
