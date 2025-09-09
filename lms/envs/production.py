@@ -315,11 +315,15 @@ if (
    FEATURES['ENABLE_COURSE_DISCOVERY'] or
    FEATURES['ENABLE_TEAMS']
    ):
-    # Use ElasticSearch as the search engine herein
-    SEARCH_ENGINE = "search.elastic.ElasticSearchEngine"
+    # # Use ElasticSearch as the search engine herein
+    # SEARCH_ENGINE = "search.elastic.ElasticSearchEngine"
+    #Use EMeiliSearch as the search engine herein
+    SEARCH_ENGINE = "search.meilisearch.MeilisearchEngine"
 
-# TODO: Once we have successfully upgraded to ES7, switch this back to ELASTIC_SEARCH_CONFIG.
-ELASTIC_SEARCH_CONFIG = _YAML_TOKENS.get('ELASTIC_SEARCH_CONFIG_ES7', [{}])
+# # TODO: Once we have successfully upgraded to ES7, switch this back to ELASTIC_SEARCH_CONFIG.
+# ELASTIC_SEARCH_CONFIG = _YAML_TOKENS.get('ELASTIC_SEARCH_CONFIG_ES7', [{}])
+# TODO: Once we have successfully upgraded to ES7, switch this back to MEILI_SEARCH_CONFIG.
+MEILI_SEARCH_CONFIG = _YAML_TOKENS.get('MEILI_SEARCH_CONFIG_ES7', [{}])
 
 XBLOCK_SETTINGS.setdefault("VideoBlock", {})["licensing_enabled"] = FEATURES["LICENSING"]
 XBLOCK_SETTINGS.setdefault("VideoBlock", {})['YOUTUBE_API_KEY'] = YOUTUBE_API_KEY

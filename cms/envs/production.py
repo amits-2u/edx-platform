@@ -275,11 +275,16 @@ EVENT_TRACKING_BACKENDS['segmentio']['OPTIONS']['processors'][0]['OPTIONS']['whi
 
 
 if FEATURES['ENABLE_COURSEWARE_INDEX'] or FEATURES['ENABLE_LIBRARY_INDEX']:
-    # Use ElasticSearch for the search engine
-    SEARCH_ENGINE = "search.elastic.ElasticSearchEngine"
+    ## Use ElasticSearch for the search engine
+    # SEARCH_ENGINE = "search.elastic.ElasticSearchEngine"
 
-# TODO: Once we have successfully upgraded to ES7, switch this back to ELASTIC_SEARCH_CONFIG.
-ELASTIC_SEARCH_CONFIG = _YAML_TOKENS.get('ELASTIC_SEARCH_CONFIG_ES7', [{}])
+    # Using MeiliSearch for the search engine
+    SEARCH_ENGINE = "search.meilisearch.MeilisearchEngine"
+
+# # TODO: Once we have successfully upgraded to ES7, switch this back to ELASTIC_SEARCH_CONFIG.
+# ELASTIC_SEARCH_CONFIG = _YAML_TOKENS.get('ELASTIC_SEARCH_CONFIG_ES7', [{}])
+# TODO: Once we have successfully upgraded to ES7, switch this back to MEILI_SEARCH_CONFIG.
+MEILI_SEARCH_CONFIG = _YAML_TOKENS.get('MEILI_SEARCH_CONFIG_ES7', [{}])
 
 XBLOCK_SETTINGS.setdefault("VideoBlock", {})["licensing_enabled"] = FEATURES["LICENSING"]
 XBLOCK_SETTINGS.setdefault("VideoBlock", {})['YOUTUBE_API_KEY'] = YOUTUBE_API_KEY

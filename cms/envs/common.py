@@ -700,11 +700,18 @@ WIKI_ENABLED = True
 
 CERT_QUEUE = 'certificates'
 
-ELASTIC_SEARCH_CONFIG = [
+# ELASTIC_SEARCH_CONFIG = [
+#     {
+#         'use_ssl': False,
+#         'host': 'localhost',
+#         'port': 9200
+#     }
+# ]
+MEILI_SEARCH_CONFIG = [
     {
         'use_ssl': False,
         'host': 'localhost',
-        'port': 9200
+        'port': 7700
     }
 ]
 
@@ -1975,7 +1982,13 @@ FILES_AND_UPLOAD_TYPE_FILTERS = {
 
 # Default to no Search Engine
 SEARCH_ENGINE = None
-ELASTIC_FIELD_MAPPINGS = {
+# ELASTIC_FIELD_MAPPINGS = {
+#     "start_date": {
+#         "type": "date"
+#     }
+# }
+
+MEILI_FIELD_MAPPINGS = {
     "start_date": {
         "type": "date"
     }

@@ -573,8 +573,9 @@ FEATURES = {
     #   pages for searching courseware data.
     # .. toggle_use_cases: open_edx
     # .. toggle_creation_date: 2015-01-29
-    # .. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch. You will
-    #   see the search widget on the courseware page only if the DISABLE_COURSE_OUTLINE_PAGE_FLAG is set.
+    # ## .. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch.
+    # .. toggle_warning: In order to get this working, your courses data should be indexed in Meilisearch.
+    #   you see the search widget on the courseware page only if the DISABLE_COURSE_OUTLINE_PAGE_FLAG is set.
     # .. toggle_tickets: https://github.com/openedx/edx-platform/pull/6506
     'ENABLE_COURSEWARE_SEARCH': False,
 
@@ -585,8 +586,9 @@ FEATURES = {
     #   pages for searching courseware data but for course staff users only.
     # .. toggle_use_cases: open_edx
     # .. toggle_creation_date: 2019-12-06
-    # .. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch. If
-    #   ENABLE_COURSEWARE_SEARCH is enabled then the search widget will be visible to all learners and this flag's
+    # ##.. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch. 
+    # .. toggle_warning: In order to get this working, your courses data should be indexed in Meilisearch
+    #   If ENABLE_COURSEWARE_SEARCH is enabled then the search widget will be visible to all learners and this flag's
     #   value does not matter in that case. This flag is enabled in devstack by default.
     # .. toggle_tickets: https://openedx.atlassian.net/browse/TNL-6931
     'ENABLE_COURSEWARE_SEARCH_FOR_COURSE_STAFF': False,
@@ -599,6 +601,7 @@ FEATURES = {
     #   courseware data.
     # .. toggle_use_cases: open_edx
     # .. toggle_creation_date: 2015-01-29
+    # ##.. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch.
     # .. toggle_warning: In order to get this working, your courses data should be indexed in Elasticsearch.
     # .. toggle_tickets: https://github.com/openedx/edx-platform/pull/6506
     'ENABLE_DASHBOARD_SEARCH': False,
@@ -1415,11 +1418,18 @@ DEV_CONTENT = True
 ICP_LICENSE = None
 ICP_LICENSE_INFO = {}
 
-ELASTIC_SEARCH_CONFIG = [
+# ELASTIC_SEARCH_CONFIG = [
+#     {
+#         'use_ssl': False,
+#         'host': 'localhost',
+#         'port': 9200
+#     }
+# ]
+MEILI_SEARCH_CONFIG = [
     {
         'use_ssl': False,
         'host': 'localhost',
-        'port': 9200
+        'port': 7700
     }
 ]
 
@@ -1429,8 +1439,13 @@ SEARCH_COURSEWARE_CONTENT_LOG_PARAMS = False
 # .. setting_name: ELASTIC_SEARCH_INDEX_PREFIX
 # .. setting_default: ''
 # .. setting_description: Specifies the prefix used when naming elasticsearch indexes related to edx-search.
-ELASTICSEARCH_INDEX_PREFIX = ""
+# ELASTICSEARCH_INDEX_PREFIX = ""
 
+# .. setting_name: MEILI_SEARCH_INDEX_PREFIX
+# .. setting_default: ''
+# .. setting_description: Specifies the prefix used when naming meilisearch indexes related to edx-search.
+
+MEILISEARCH_INDEX_PREFIX = ""
 LOGGING_ENV = 'sandbox'
 
 EDX_ROOT_URL = ''
